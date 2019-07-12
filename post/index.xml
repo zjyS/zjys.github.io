@@ -12,14 +12,21 @@
     
     
     <item>
-      <title>Blog</title>
+      <title>Android课设</title>
       <link>https://zjys.github.io/post/blog/</link>
       <pubDate>Fri, 12 Jul 2019 15:08:32 +0800</pubDate>
       
       <guid>https://zjys.github.io/post/blog/</guid>
-      <description>#1.可行性分析 #1.1目的和意义 音乐作为艺术必不可少的一部分， 是我们生活和心情的调节剂，也是我们心灵的彼岸，精神的家园。庄重肃穆的音乐使人沉稳如山，轻快活泼的音乐使人飘忽如云，舒缓悠扬的音乐使人心静如水。它是你急噪不安时的一针镇定剂，是你忧伤感怀时的一抹笑容，此次设计从实际工程应用的角度出发，以计算机硬件解码为指导，编程实现基于Android的音乐播放工具,完成我们实现移动终端的设计与实现。 本项目规模适中，适合于个人开发，能够锻炼学习新知识能力，进一步加深我们对学过的知识进行回顾，并进一步锻炼编程能力，锻炼软件工程思维方式。 #1.2经济可行性 音乐播放器的成本主要集中在软件开发方面里，开发完只需安装就可以快速的投入使用，所以这点开发成本，十分低下，在经济上是可行的。 #1.3技术可行性 硬件方面，开发只需一台普通的个人电脑机，并装有Windows或Linux。在软件方面，只需用到Eclipse开发集成环境 android SDK14-19版本以上，jdk1.7，开发语言用到Java语言。现今这些资源都是可以轻易得到的。也足以在指定时间内完成开发，所以技术上这也是可行的。 #1.4操作可行性 本文中的音频播放器界面简单明了，让人一目了然。各类功能设计也是规范有序，充分考虑了用户的习惯问题。在操作方面也是完全可行的。 #2.需求分析 #2.1功能需求 1.利用Android系统的MediaProvider从MediaStore数据库中读取每一首歌曲的信息。 2.拥有上一首、播放/暂停、下一曲和控制播放进度功能。 3.将歌曲显示在ListView中并按照歌曲ID排序，歌曲列表显示歌曲标题。 4.能够实现后台播放。 #2.2性能需求 能够在Android2.2以上系统上流畅运行，支持各种主流分辨率(1920*1080,1280*720)，对硬件的要求较低。 #3.概要设计 #3.1模块划分 五大模块： 歌曲列表：通过ListView显示歌曲标题，点击一首歌，根据position的值开始播放。 歌曲切换：根据mode（歌曲模式）的值选择相应的方式(顺序、随机、单曲)来实现歌曲的切换。 歌曲准备：歌曲资源采用异步准备方式（调用mediaPlayer中的prepareAsync()），通过在Service中设置一个监听器，当歌曲播放准备后，调用监听器中方onPrepared(MediaPlayer mp)方法实现播放。 歌曲播放：通过在Service组件中开辟一个子线程来播放音乐，避免主线程任务繁多而导致的卡死。 自动播放：通过在Activity中注册一个广播接收器，用于接受歌曲播放完成的广播，接受后调用播放下一曲的方法。 #3.2音乐播放器的时序图 从时序图中可以看出播放器的调用过程：
-#4.详细设计 #4.1播放器的主界面的设计与说明 Android的每一个Activity，都有其唯一的布局配置文件，该文件里有各种布局方式，各种资源文件如图像，文字，颜色的引用，程序在运行时，可以通过代码对配置文件进行读取。这样就可以形成不同的可视化界面和绚丽效果。 主界面布局文件内容如下： &amp;lt;?xml version=&amp;ldquo;1.0&amp;rdquo; encoding=&amp;ldquo;utf-8&amp;rdquo;?&amp;gt; 此处的Button用于上一曲 此处的Button用于播放与暂停 此处的Button用于下一曲 
-此处的TextView用于显示歌曲标题 此处的TextView用于显示演唱者 此处的SeekBar用于显示歌曲播放进度 此处的TextView用于歌曲当前播放时刻 此处的TextView用于显示歌曲总时长  此处的ListView作为歌曲列表   #4.2音频数据库 Android系统自带的本地音频数据库表格如下： 表4.1 音频数据表 字段 解析 _id 歌曲id _data 文件的绝对路径 _size 文件大小 _display_name 文件名 album 专辑名 artist 作曲家 title 歌曲标题 duration 播放时长 借助上表的字段名和Android提供的ContentProvider可以针对性的获取音频数据，是本地音乐的扫描得到实现的可能。 #4.</description>
+      <description>1.可行性分析 1.1目的和意义 ​ 音乐作为艺术必不可少的一部分， 是我们生活和心情的调节剂，也是我们心灵的彼岸，精神的家园。庄重肃穆的音乐使人沉稳如山，轻快活泼的音乐使人飘忽如云，舒缓悠扬的音乐使人心静如水。它是你急噪不安时的一针镇定剂，是你忧伤感怀时的一抹笑容，此次设计从实际工程应用的角度出发，以计算机硬件解码为指导，编程实现基于Android的音乐播放工具,完成我们实现移动终端的设计与实现。 ​ 本项目规模适中，适合于个人开发，能够锻炼学习新知识能力，进一步加深我们对学过的知识进行回顾，并进一步锻炼编程能力，锻炼软件工程思维方式。
+1.2经济可行性 ​ 音乐播放器的成本主要集中在软件开发方面里，开发完只需安装就可以快速的投入使用，所以这点开发成本，十分低下，在经济上是可行的。
+1.3技术可行性 ​ 硬件方面，开发只需一台普通的个人电脑机，并装有Windows或Linux。在软件方面，只需用到Eclipse开发集成环境 android SDK14-19版本以上，jdk1.7，开发语言用到Java语言。现今这些资源都是可以轻易得到的。也足以在指定时间内完成开发，所以技术上这也是可行的。
+1.4操作可行性 本文中的音频播放器界面简单明了，让人一目了然。各类功能设计也是规范有序，充分考虑了用户的习惯问题。在操作方面也是完全可行的。
+2.需求分析 2.1功能需求 1.利用Android系统的MediaProvider从MediaStore数据库中读取每一首歌曲的信息。 2.拥有上一首、播放/暂停、下一曲和控制播放进度功能。 3.将歌曲显示在ListView中并按照歌曲ID排序，歌曲列表显示歌曲标题。 4.能够实现后台播放。
+2.2性能需求 能够在Android2.2以上系统上流畅运行，支持各种主流分辨率(19201080,1280720)，对硬件的要求较低。
+3.概要设计 3.1模块划分 歌曲列表：通过ListView显示歌曲标题，点击一首歌，根据position的值开始播放。 歌曲切换：根据mode（歌曲模式）的值选择相应的方式(顺序、随机、单曲)来实现歌曲的切换。 歌曲准备：歌曲资源采用异步准备方式（调用mediaPlayer中的prepareAsync()），通过在Service中设置一个监听器，当歌曲播放准备后，调用监听器中方onPrepared(MediaPlayer mp)方法实现播放。 歌曲播放：通过在Service组件中开辟一个子线程来播放音乐，避免主线程任务繁多而导致的卡死。 自动播放：通过在Activity中注册一个广播接收器，用于接受歌曲播放完成的广播，接受后调用播放下一曲的方法。
+3.2音乐播放器的时序图 从时序图中可以看出播放器的调用过程：
+4.详细设计 4.1播放器的主界面的设计与说明 ​ Android的每一个Activity，都有其唯一的布局配置文件，该文件里有各种布局方式，各种资源文件如图像，文字，颜色的引用，程序在运行时，可以通过代码对配置文件进行读取。这样就可以形成不同的可视化界面和绚丽效果。
+&amp;lt;!--主界面布局文件内容如下：--&amp;gt;* &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot; android:layout_width=&amp;quot;match_parent&amp;quot; android:layout_height=&amp;quot;match_parent&amp;quot; android:orientation=&amp;quot;vertical&amp;quot; &amp;gt; &amp;lt;LinearLayout android:layout_width=&amp;quot;match_parent&amp;quot; android:layout_height=&amp;quot;wrap_content&amp;quot; &amp;gt; &amp;lt;!--此处的Button用于上一曲--&amp;gt; &amp;lt;Button android:id=&amp;quot;@+id/button1&amp;quot; android:layout_width=&amp;quot;wrap_content&amp;quot; android:layout_height=&amp;quot;wrap_content&amp;quot; android:layout_margin=&amp;quot;@dimen/activity_horizontal_margin&amp;quot; android:layout_weight=&amp;quot;1&amp;quot; android:text=&amp;quot;@string/button1&amp;quot; /&amp;gt; &amp;lt;!--此处的Button用于播放与暂停--&amp;gt; &amp;lt;Button android:id=&amp;quot;@+id/button2&amp;quot; android:layout_width=&amp;quot;wrap_content&amp;quot; android:layout_height=&amp;quot;wrap_content&amp;quot; android:layout_margin=&amp;quot;@dimen/activity_horizontal_margin&amp;quot; android:layout_weight=&amp;quot;1&amp;quot; android:text=&amp;quot;@string/button2&amp;quot; /&amp;gt; &amp;lt;!</description>
     </item>
     
   </channel>

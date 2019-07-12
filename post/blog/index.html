@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en-us">
   <head>
-    <title>Blog // My New Hugo Site</title>
+    <title>Android课设 // My New Hugo Site</title>
     <meta charset="utf-8" />
     <meta name="generator" content="Hugo 0.55.6" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -11,15 +11,29 @@
 
     
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Blog"/>
-<meta name="twitter:description" content="#1.可行性分析 #1.1目的和意义 音乐作为艺术必不可少的一部分， 是我们生活和心情的调节剂，也是我们心灵的彼岸，精神的家园。庄重肃穆的音乐使人沉稳如山，轻快活泼的音乐使人飘忽如云，舒缓悠扬的音乐使人心静如水。它是你急噪不安时的一针镇定剂，是你忧伤感怀时的一抹笑容，此次设计从实际工程应用的角度出发，以计算机硬件解码为指导，编程实现基于Android的音乐播放工具,完成我们实现移动终端的设计与实现。 本项目规模适中，适合于个人开发，能够锻炼学习新知识能力，进一步加深我们对学过的知识进行回顾，并进一步锻炼编程能力，锻炼软件工程思维方式。 #1.2经济可行性 音乐播放器的成本主要集中在软件开发方面里，开发完只需安装就可以快速的投入使用，所以这点开发成本，十分低下，在经济上是可行的。 #1.3技术可行性 硬件方面，开发只需一台普通的个人电脑机，并装有Windows或Linux。在软件方面，只需用到Eclipse开发集成环境 android SDK14-19版本以上，jdk1.7，开发语言用到Java语言。现今这些资源都是可以轻易得到的。也足以在指定时间内完成开发，所以技术上这也是可行的。 #1.4操作可行性 本文中的音频播放器界面简单明了，让人一目了然。各类功能设计也是规范有序，充分考虑了用户的习惯问题。在操作方面也是完全可行的。 #2.需求分析 #2.1功能需求 1.利用Android系统的MediaProvider从MediaStore数据库中读取每一首歌曲的信息。 2.拥有上一首、播放/暂停、下一曲和控制播放进度功能。 3.将歌曲显示在ListView中并按照歌曲ID排序，歌曲列表显示歌曲标题。 4.能够实现后台播放。 #2.2性能需求 能够在Android2.2以上系统上流畅运行，支持各种主流分辨率(1920*1080,1280*720)，对硬件的要求较低。 #3.概要设计 #3.1模块划分 五大模块： 歌曲列表：通过ListView显示歌曲标题，点击一首歌，根据position的值开始播放。 歌曲切换：根据mode（歌曲模式）的值选择相应的方式(顺序、随机、单曲)来实现歌曲的切换。 歌曲准备：歌曲资源采用异步准备方式（调用mediaPlayer中的prepareAsync()），通过在Service中设置一个监听器，当歌曲播放准备后，调用监听器中方onPrepared(MediaPlayer mp)方法实现播放。 歌曲播放：通过在Service组件中开辟一个子线程来播放音乐，避免主线程任务繁多而导致的卡死。 自动播放：通过在Activity中注册一个广播接收器，用于接受歌曲播放完成的广播，接受后调用播放下一曲的方法。 #3.2音乐播放器的时序图 从时序图中可以看出播放器的调用过程：
-#4.详细设计 #4.1播放器的主界面的设计与说明 Android的每一个Activity，都有其唯一的布局配置文件，该文件里有各种布局方式，各种资源文件如图像，文字，颜色的引用，程序在运行时，可以通过代码对配置文件进行读取。这样就可以形成不同的可视化界面和绚丽效果。 主界面布局文件内容如下： &lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?&gt; 此处的Button用于上一曲 此处的Button用于播放与暂停 此处的Button用于下一曲 
-此处的TextView用于显示歌曲标题 此处的TextView用于显示演唱者 此处的SeekBar用于显示歌曲播放进度 此处的TextView用于歌曲当前播放时刻 此处的TextView用于显示歌曲总时长  此处的ListView作为歌曲列表   #4.2音频数据库 Android系统自带的本地音频数据库表格如下： 表4.1 音频数据表 字段 解析 _id 歌曲id _data 文件的绝对路径 _size 文件大小 _display_name 文件名 album 专辑名 artist 作曲家 title 歌曲标题 duration 播放时长 借助上表的字段名和Android提供的ContentProvider可以针对性的获取音频数据，是本地音乐的扫描得到实现的可能。 #4."/>
+<meta name="twitter:title" content="Android课设"/>
+<meta name="twitter:description" content="1.可行性分析 1.1目的和意义 ​ 音乐作为艺术必不可少的一部分， 是我们生活和心情的调节剂，也是我们心灵的彼岸，精神的家园。庄重肃穆的音乐使人沉稳如山，轻快活泼的音乐使人飘忽如云，舒缓悠扬的音乐使人心静如水。它是你急噪不安时的一针镇定剂，是你忧伤感怀时的一抹笑容，此次设计从实际工程应用的角度出发，以计算机硬件解码为指导，编程实现基于Android的音乐播放工具,完成我们实现移动终端的设计与实现。 ​ 本项目规模适中，适合于个人开发，能够锻炼学习新知识能力，进一步加深我们对学过的知识进行回顾，并进一步锻炼编程能力，锻炼软件工程思维方式。
+1.2经济可行性 ​ 音乐播放器的成本主要集中在软件开发方面里，开发完只需安装就可以快速的投入使用，所以这点开发成本，十分低下，在经济上是可行的。
+1.3技术可行性 ​ 硬件方面，开发只需一台普通的个人电脑机，并装有Windows或Linux。在软件方面，只需用到Eclipse开发集成环境 android SDK14-19版本以上，jdk1.7，开发语言用到Java语言。现今这些资源都是可以轻易得到的。也足以在指定时间内完成开发，所以技术上这也是可行的。
+1.4操作可行性 本文中的音频播放器界面简单明了，让人一目了然。各类功能设计也是规范有序，充分考虑了用户的习惯问题。在操作方面也是完全可行的。
+2.需求分析 2.1功能需求 1.利用Android系统的MediaProvider从MediaStore数据库中读取每一首歌曲的信息。 2.拥有上一首、播放/暂停、下一曲和控制播放进度功能。 3.将歌曲显示在ListView中并按照歌曲ID排序，歌曲列表显示歌曲标题。 4.能够实现后台播放。
+2.2性能需求 能够在Android2.2以上系统上流畅运行，支持各种主流分辨率(19201080,1280720)，对硬件的要求较低。
+3.概要设计 3.1模块划分 歌曲列表：通过ListView显示歌曲标题，点击一首歌，根据position的值开始播放。 歌曲切换：根据mode（歌曲模式）的值选择相应的方式(顺序、随机、单曲)来实现歌曲的切换。 歌曲准备：歌曲资源采用异步准备方式（调用mediaPlayer中的prepareAsync()），通过在Service中设置一个监听器，当歌曲播放准备后，调用监听器中方onPrepared(MediaPlayer mp)方法实现播放。 歌曲播放：通过在Service组件中开辟一个子线程来播放音乐，避免主线程任务繁多而导致的卡死。 自动播放：通过在Activity中注册一个广播接收器，用于接受歌曲播放完成的广播，接受后调用播放下一曲的方法。
+3.2音乐播放器的时序图 从时序图中可以看出播放器的调用过程：
+4.详细设计 4.1播放器的主界面的设计与说明 ​ Android的每一个Activity，都有其唯一的布局配置文件，该文件里有各种布局方式，各种资源文件如图像，文字，颜色的引用，程序在运行时，可以通过代码对配置文件进行读取。这样就可以形成不同的可视化界面和绚丽效果。
+&lt;!--主界面布局文件内容如下：--&gt;* &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;match_parent&quot; android:orientation=&quot;vertical&quot; &gt; &lt;LinearLayout android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot; &gt; &lt;!--此处的Button用于上一曲--&gt; &lt;Button android:id=&quot;@&#43;id/button1&quot; android:layout_width=&quot;wrap_content&quot; android:layout_height=&quot;wrap_content&quot; android:layout_margin=&quot;@dimen/activity_horizontal_margin&quot; android:layout_weight=&quot;1&quot; android:text=&quot;@string/button1&quot; /&gt; &lt;!--此处的Button用于播放与暂停--&gt; &lt;Button android:id=&quot;@&#43;id/button2&quot; android:layout_width=&quot;wrap_content&quot; android:layout_height=&quot;wrap_content&quot; android:layout_margin=&quot;@dimen/activity_horizontal_margin&quot; android:layout_weight=&quot;1&quot; android:text=&quot;@string/button2&quot; /&gt; &lt;!"/>
 
-    <meta property="og:title" content="Blog" />
-<meta property="og:description" content="#1.可行性分析 #1.1目的和意义 音乐作为艺术必不可少的一部分， 是我们生活和心情的调节剂，也是我们心灵的彼岸，精神的家园。庄重肃穆的音乐使人沉稳如山，轻快活泼的音乐使人飘忽如云，舒缓悠扬的音乐使人心静如水。它是你急噪不安时的一针镇定剂，是你忧伤感怀时的一抹笑容，此次设计从实际工程应用的角度出发，以计算机硬件解码为指导，编程实现基于Android的音乐播放工具,完成我们实现移动终端的设计与实现。 本项目规模适中，适合于个人开发，能够锻炼学习新知识能力，进一步加深我们对学过的知识进行回顾，并进一步锻炼编程能力，锻炼软件工程思维方式。 #1.2经济可行性 音乐播放器的成本主要集中在软件开发方面里，开发完只需安装就可以快速的投入使用，所以这点开发成本，十分低下，在经济上是可行的。 #1.3技术可行性 硬件方面，开发只需一台普通的个人电脑机，并装有Windows或Linux。在软件方面，只需用到Eclipse开发集成环境 android SDK14-19版本以上，jdk1.7，开发语言用到Java语言。现今这些资源都是可以轻易得到的。也足以在指定时间内完成开发，所以技术上这也是可行的。 #1.4操作可行性 本文中的音频播放器界面简单明了，让人一目了然。各类功能设计也是规范有序，充分考虑了用户的习惯问题。在操作方面也是完全可行的。 #2.需求分析 #2.1功能需求 1.利用Android系统的MediaProvider从MediaStore数据库中读取每一首歌曲的信息。 2.拥有上一首、播放/暂停、下一曲和控制播放进度功能。 3.将歌曲显示在ListView中并按照歌曲ID排序，歌曲列表显示歌曲标题。 4.能够实现后台播放。 #2.2性能需求 能够在Android2.2以上系统上流畅运行，支持各种主流分辨率(1920*1080,1280*720)，对硬件的要求较低。 #3.概要设计 #3.1模块划分 五大模块： 歌曲列表：通过ListView显示歌曲标题，点击一首歌，根据position的值开始播放。 歌曲切换：根据mode（歌曲模式）的值选择相应的方式(顺序、随机、单曲)来实现歌曲的切换。 歌曲准备：歌曲资源采用异步准备方式（调用mediaPlayer中的prepareAsync()），通过在Service中设置一个监听器，当歌曲播放准备后，调用监听器中方onPrepared(MediaPlayer mp)方法实现播放。 歌曲播放：通过在Service组件中开辟一个子线程来播放音乐，避免主线程任务繁多而导致的卡死。 自动播放：通过在Activity中注册一个广播接收器，用于接受歌曲播放完成的广播，接受后调用播放下一曲的方法。 #3.2音乐播放器的时序图 从时序图中可以看出播放器的调用过程：
-#4.详细设计 #4.1播放器的主界面的设计与说明 Android的每一个Activity，都有其唯一的布局配置文件，该文件里有各种布局方式，各种资源文件如图像，文字，颜色的引用，程序在运行时，可以通过代码对配置文件进行读取。这样就可以形成不同的可视化界面和绚丽效果。 主界面布局文件内容如下： &lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?&gt; 此处的Button用于上一曲 此处的Button用于播放与暂停 此处的Button用于下一曲 
-此处的TextView用于显示歌曲标题 此处的TextView用于显示演唱者 此处的SeekBar用于显示歌曲播放进度 此处的TextView用于歌曲当前播放时刻 此处的TextView用于显示歌曲总时长  此处的ListView作为歌曲列表   #4.2音频数据库 Android系统自带的本地音频数据库表格如下： 表4.1 音频数据表 字段 解析 _id 歌曲id _data 文件的绝对路径 _size 文件大小 _display_name 文件名 album 专辑名 artist 作曲家 title 歌曲标题 duration 播放时长 借助上表的字段名和Android提供的ContentProvider可以针对性的获取音频数据，是本地音乐的扫描得到实现的可能。 #4." />
+    <meta property="og:title" content="Android课设" />
+<meta property="og:description" content="1.可行性分析 1.1目的和意义 ​ 音乐作为艺术必不可少的一部分， 是我们生活和心情的调节剂，也是我们心灵的彼岸，精神的家园。庄重肃穆的音乐使人沉稳如山，轻快活泼的音乐使人飘忽如云，舒缓悠扬的音乐使人心静如水。它是你急噪不安时的一针镇定剂，是你忧伤感怀时的一抹笑容，此次设计从实际工程应用的角度出发，以计算机硬件解码为指导，编程实现基于Android的音乐播放工具,完成我们实现移动终端的设计与实现。 ​ 本项目规模适中，适合于个人开发，能够锻炼学习新知识能力，进一步加深我们对学过的知识进行回顾，并进一步锻炼编程能力，锻炼软件工程思维方式。
+1.2经济可行性 ​ 音乐播放器的成本主要集中在软件开发方面里，开发完只需安装就可以快速的投入使用，所以这点开发成本，十分低下，在经济上是可行的。
+1.3技术可行性 ​ 硬件方面，开发只需一台普通的个人电脑机，并装有Windows或Linux。在软件方面，只需用到Eclipse开发集成环境 android SDK14-19版本以上，jdk1.7，开发语言用到Java语言。现今这些资源都是可以轻易得到的。也足以在指定时间内完成开发，所以技术上这也是可行的。
+1.4操作可行性 本文中的音频播放器界面简单明了，让人一目了然。各类功能设计也是规范有序，充分考虑了用户的习惯问题。在操作方面也是完全可行的。
+2.需求分析 2.1功能需求 1.利用Android系统的MediaProvider从MediaStore数据库中读取每一首歌曲的信息。 2.拥有上一首、播放/暂停、下一曲和控制播放进度功能。 3.将歌曲显示在ListView中并按照歌曲ID排序，歌曲列表显示歌曲标题。 4.能够实现后台播放。
+2.2性能需求 能够在Android2.2以上系统上流畅运行，支持各种主流分辨率(19201080,1280720)，对硬件的要求较低。
+3.概要设计 3.1模块划分 歌曲列表：通过ListView显示歌曲标题，点击一首歌，根据position的值开始播放。 歌曲切换：根据mode（歌曲模式）的值选择相应的方式(顺序、随机、单曲)来实现歌曲的切换。 歌曲准备：歌曲资源采用异步准备方式（调用mediaPlayer中的prepareAsync()），通过在Service中设置一个监听器，当歌曲播放准备后，调用监听器中方onPrepared(MediaPlayer mp)方法实现播放。 歌曲播放：通过在Service组件中开辟一个子线程来播放音乐，避免主线程任务繁多而导致的卡死。 自动播放：通过在Activity中注册一个广播接收器，用于接受歌曲播放完成的广播，接受后调用播放下一曲的方法。
+3.2音乐播放器的时序图 从时序图中可以看出播放器的调用过程：
+4.详细设计 4.1播放器的主界面的设计与说明 ​ Android的每一个Activity，都有其唯一的布局配置文件，该文件里有各种布局方式，各种资源文件如图像，文字，颜色的引用，程序在运行时，可以通过代码对配置文件进行读取。这样就可以形成不同的可视化界面和绚丽效果。
+&lt;!--主界面布局文件内容如下：--&gt;* &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt; &lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;match_parent&quot; android:orientation=&quot;vertical&quot; &gt; &lt;LinearLayout android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;wrap_content&quot; &gt; &lt;!--此处的Button用于上一曲--&gt; &lt;Button android:id=&quot;@&#43;id/button1&quot; android:layout_width=&quot;wrap_content&quot; android:layout_height=&quot;wrap_content&quot; android:layout_margin=&quot;@dimen/activity_horizontal_margin&quot; android:layout_weight=&quot;1&quot; android:text=&quot;@string/button1&quot; /&gt; &lt;!--此处的Button用于播放与暂停--&gt; &lt;Button android:id=&quot;@&#43;id/button2&quot; android:layout_width=&quot;wrap_content&quot; android:layout_height=&quot;wrap_content&quot; android:layout_margin=&quot;@dimen/activity_horizontal_margin&quot; android:layout_weight=&quot;1&quot; android:text=&quot;@string/button2&quot; /&gt; &lt;!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://zjys.github.io/post/blog/" />
 <meta property="article:published_time" content="2019-07-12T15:08:32&#43;08:00"/>
@@ -40,7 +54,7 @@
       
   <article class="post">
     <header class="post-header">
-      <h1 class ="post-title">Blog</h1>
+      <h1 class ="post-title">Android课设</h1>
       <div class="post-meta">
         <div>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
@@ -58,419 +72,516 @@
         </div></div>
     </header>
     <div class="post-content">
-      <p>#1.可行性分析
-#1.1目的和意义
-音乐作为艺术必不可少的一部分， 是我们生活和心情的调节剂，也是我们心灵的彼岸，精神的家园。庄重肃穆的音乐使人沉稳如山，轻快活泼的音乐使人飘忽如云，舒缓悠扬的音乐使人心静如水。它是你急噪不安时的一针镇定剂，是你忧伤感怀时的一抹笑容，此次设计从实际工程应用的角度出发，以计算机硬件解码为指导，编程实现基于Android的音乐播放工具,完成我们实现移动终端的设计与实现。
-本项目规模适中，适合于个人开发，能够锻炼学习新知识能力，进一步加深我们对学过的知识进行回顾，并进一步锻炼编程能力，锻炼软件工程思维方式。
-#1.2经济可行性
-音乐播放器的成本主要集中在软件开发方面里，开发完只需安装就可以快速的投入使用，所以这点开发成本，十分低下，在经济上是可行的。
-#1.3技术可行性
-硬件方面，开发只需一台普通的个人电脑机，并装有Windows或Linux。在软件方面，只需用到Eclipse开发集成环境 android SDK14-19版本以上，jdk1.7，开发语言用到Java语言。现今这些资源都是可以轻易得到的。也足以在指定时间内完成开发，所以技术上这也是可行的。
-#1.4操作可行性
-本文中的音频播放器界面简单明了，让人一目了然。各类功能设计也是规范有序，充分考虑了用户的习惯问题。在操作方面也是完全可行的。
-#2.需求分析
-#2.1功能需求
-1.利用Android系统的MediaProvider从MediaStore数据库中读取每一首歌曲的信息。
-2.拥有上一首、播放/暂停、下一曲和控制播放进度功能。
-3.将歌曲显示在ListView中并按照歌曲ID排序，歌曲列表显示歌曲标题。
-4.能够实现后台播放。
-#2.2性能需求
-能够在Android2.2以上系统上流畅运行，支持各种主流分辨率(1920*1080,1280*720)，对硬件的要求较低。
-#3.概要设计
-#3.1模块划分
-五大模块：
-歌曲列表：通过ListView显示歌曲标题，点击一首歌，根据position的值开始播放。
-歌曲切换：根据mode（歌曲模式）的值选择相应的方式(顺序、随机、单曲)来实现歌曲的切换。
-歌曲准备：歌曲资源采用异步准备方式（调用mediaPlayer中的prepareAsync()），通过在Service中设置一个监听器，当歌曲播放准备后，调用监听器中方onPrepared(MediaPlayer mp)方法实现播放。
-歌曲播放：通过在Service组件中开辟一个子线程来播放音乐，避免主线程任务繁多而导致的卡死。
-自动播放：通过在Activity中注册一个广播接收器，用于接受歌曲播放完成的广播，接受后调用播放下一曲的方法。
-#3.2音乐播放器的时序图
-从时序图中可以看出播放器的调用过程：</p>
+      
 
-<p>#4.详细设计
-#4.1播放器的主界面的设计与说明
-Android的每一个Activity，都有其唯一的布局配置文件，该文件里有各种布局方式，各种资源文件如图像，文字，颜色的引用，程序在运行时，可以通过代码对配置文件进行读取。这样就可以形成不同的可视化界面和绚丽效果。
-主界面布局文件内容如下：
-&lt;?xml version=&ldquo;1.0&rdquo; encoding=&ldquo;utf-8&rdquo;?&gt;
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content" >
- 此处的Button用于上一曲
-          <Button
-               android:id="@+id/button1"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_margin="@dimen/activity_horizontal_margin"
-               android:layout_weight="1"
-               android:text="@string/button1" />
-此处的Button用于播放与暂停
-           <Button
-               android:id="@+id/button2"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_margin="@dimen/activity_horizontal_margin"
-               android:layout_weight="1"
-               android:text="@string/button2" />
-此处的Button用于下一曲
-           <Button
-               android:id="@+id/button3"
-               android:layout_width="wrap_content"
-               android:layout_height="wrap_content"
-               android:layout_margin="@dimen/activity_horizontal_margin"
-               android:layout_weight="1"
-               android:text="@string/button3" />
-       </LinearLayout></p>
+<h1 id="1-可行性分析"><strong>1.可行性分析</strong></h1>
 
-<p>此处的TextView用于显示歌曲标题
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="@string/music_name"
-            android:textSize="@dimen/size" />
-此处的TextView用于显示演唱者
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="15dp"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="@string/music_author"
-            android:textSize="@dimen/size" />
-此处的SeekBar用于显示歌曲播放进度
-        <SeekBar
-            android:id="@+id/seekBar1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-此处的TextView用于歌曲当前播放时刻
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/left"
-            android:layout_weight="1"
-            android:text="@string/time1" />
-此处的TextView用于显示歌曲总时长
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:layout_marginRight="@dimen/left"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="@string/time2" />
-        </LinearLayout>
-此处的ListView作为歌曲列表
-        <ListView
-            android:id="@+id/listView1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-        </ListView>
-</LinearLayout>
-#4.2音频数据库
-Android系统自带的本地音频数据库表格如下：
-表4.1 音频数据表
-字段  解析
-_id 歌曲id
-_data   文件的绝对路径
-_size   文件大小
-_display_name   文件名
-album   专辑名
-artist  作曲家
-title   歌曲标题
-duration    播放时长
-借助上表的字段名和Android提供的ContentProvider可以针对性的获取音频数据，是本地音乐的扫描得到实现的可能。
-#4.3本地音乐的搜索扫描
-#4.3.1连接音频数据库
-cursor=resolver.query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,null,null,null,MediaStore.Audio.Media._ID);
-利用ContentProvider（内容提供者）调用Android系统自带的音频数据库，这个路径地址为MediaStore.Audio.Media.EXTERNAL_CONTENT_URI，返回结果为一个Cursor数据集对象。
-#4.3.2音乐数据存储
-MediaResource[] mediares = new MediaResource[cursor.getCount()];
-        if(cursor.moveToFirst()){
-            for(int i = 0;i &lt; cursor.getCount();i++){
+<h2 id="1-1目的和意义">1.1目的和意义</h2>
+
+<p>​        <em><u>音乐作为艺术必不可少的一部分， 是我们生活和心情的调节剂，也是我们心灵的彼岸，精神的家园。庄重肃穆的音乐使人沉稳如山，轻快活泼的音乐使人飘忽如云，舒缓悠扬的音乐使人心静如水。它是你急噪不安时的一针镇定剂，是你忧伤感怀时的一抹笑容，此次设计从实际工程应用的角度出发，以计算机硬件解码为指导，编程实现基于Android的音乐播放工具,完成我们实现移动终端的设计与实现。
+​        本项目规模适中，适合于个人开发，能够锻炼学习新知识能力，进一步加深我们对学过的知识进行回顾，并进一步锻炼编程能力，锻炼软件工程思维方式。</em></u></p>
+
+<h2 id="1-2经济可行性">1.2经济可行性</h2>
+
+<p>​        <em>音乐播放器的成本主要集中在软件开发方面里，开发完只需安装就可以快速的投入使用，所以这点开发成本，十分低下，在经济上是可行的。</em></p>
+
+<h2 id="1-3技术可行性">1.3技术可行性</h2>
+
+<p>​        <em>硬件方面，开发只需一台普通的个人电脑机，并装有Windows或Linux。在软件方面，只需用到Eclipse开发集成环境 android SDK14-19版本以上，jdk1.7，开发语言用到Java语言。现今这些资源都是可以轻易得到的。也足以在指定时间内完成开发，所以技术上这也是可行的。</em></p>
+
+<h2 id="1-4操作可行性">1.4操作可行性</h2>
+
+<p><em>本文中的音频播放器界面简单明了，让人一目了然。各类功能设计也是规范有序，充分考虑了用户的习惯问题。在操作方面也是完全可行的。</em></p>
+
+<h1 id="2-需求分析">2.需求分析</h1>
+
+<h2 id="2-1功能需求">2.1功能需求</h2>
+
+<p><em>1.利用Android系统的MediaProvider从MediaStore数据库中读取每一首歌曲的信息。</em>
+<em>2.拥有上一首、播放/暂停、下一曲和控制播放进度功能。</em>
+<em>3.将歌曲显示在ListView中并按照歌曲ID排序，歌曲列表显示歌曲标题。</em>
+<em>4.能够实现后台播放。</em></p>
+
+<h2 id="2-2性能需求">2.2性能需求</h2>
+
+<p><em>能够在Android2.2以上系统上流畅运行，支持各种主流分辨率(19201080,1280720)，对硬件的要求较低。</em></p>
+
+<h1 id="3-概要设计">3.概要设计</h1>
+
+<h2 id="3-1模块划分">3.1模块划分</h2>
+
+<p><em>歌曲列表：通过ListView显示歌曲标题，点击一首歌，根据position的值开始播放。</em>
+<em>歌曲切换：根据mode（歌曲模式）的值选择相应的方式(顺序、随机、单曲)来实现歌曲的切换。</em>
+<em>歌曲准备：歌曲资源采用异步准备方式（调用mediaPlayer中的prepareAsync()），通过在Service中设置一个监听器，当歌曲播放准备后，调用监听器中方onPrepared(MediaPlayer mp)方法实现播放。</em>
+<em>歌曲播放：通过在Service组件中开辟一个子线程来播放音乐，避免主线程任务繁多而导致的卡死。</em>
+<em>自动播放：通过在Activity中注册一个广播接收器，用于接受歌曲播放完成的广播，接受后调用播放下一曲的方法。</em></p>
+
+<h2 id="3-2音乐播放器的时序图">3.2音乐播放器的时序图</h2>
+
+<p><em>从时序图中可以看出播放器的调用过程：</em></p>
+
+<p><img src="E:myblogresources_genimages时序图.png" alt="" /></p>
+
+<h1 id="4-详细设计">4.详细设计</h1>
+
+<h2 id="4-1播放器的主界面的设计与说明">4.1播放器的主界面的设计与说明</h2>
+
+<p>​        <em>Android的每一个Activity，都有其唯一的布局配置文件，该文件里有各种布局方式，各种资源文件如图像，文字，颜色的引用，程序在运行时，可以通过代码对配置文件进行读取。这样就可以形成不同的可视化界面和绚丽效果。</em></p>
+
+<pre><code class="language-xml">&lt;!--主界面布局文件内容如下：--&gt;*
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot; &gt;
+       &lt;LinearLayout
+           android:layout_width=&quot;match_parent&quot;
+           android:layout_height=&quot;wrap_content&quot; &gt;
+ &lt;!--此处的Button用于上一曲--&gt;
+          &lt;Button
+               android:id=&quot;@+id/button1&quot;
+               android:layout_width=&quot;wrap_content&quot;
+               android:layout_height=&quot;wrap_content&quot;
+               android:layout_margin=&quot;@dimen/activity_horizontal_margin&quot;
+               android:layout_weight=&quot;1&quot;
+               android:text=&quot;@string/button1&quot; /&gt;
+&lt;!--此处的Button用于播放与暂停--&gt;
+           &lt;Button
+               android:id=&quot;@+id/button2&quot;
+               android:layout_width=&quot;wrap_content&quot;
+               android:layout_height=&quot;wrap_content&quot;
+               android:layout_margin=&quot;@dimen/activity_horizontal_margin&quot;
+               android:layout_weight=&quot;1&quot;
+               android:text=&quot;@string/button2&quot; /&gt;
+&lt;!--此处的Button用于下一曲--&gt;
+           &lt;Button
+               android:id=&quot;@+id/button3&quot;
+               android:layout_width=&quot;wrap_content&quot;
+               android:layout_height=&quot;wrap_content&quot;
+               android:layout_margin=&quot;@dimen/activity_horizontal_margin&quot;
+               android:layout_weight=&quot;1&quot;
+               android:text=&quot;@string/button3&quot; /&gt;
+       &lt;/LinearLayout&gt;
+
+&lt;!--此处的TextView用于显示歌曲标题--&gt;
+        &lt;TextView
+            android:id=&quot;@+id/textView1&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;15dp&quot;
+            android:layout_gravity=&quot;center&quot;
+            android:gravity=&quot;center&quot;
+            android:text=&quot;@string/music_name&quot;
+            android:textSize=&quot;@dimen/size&quot; /&gt;
+&lt;!--此处的TextView用于显示演唱者--&gt;
+        &lt;TextView
+            android:id=&quot;@+id/textView4&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;15dp&quot;
+            android:layout_gravity=&quot;center&quot;
+            android:gravity=&quot;center&quot;
+            android:text=&quot;@string/music_author&quot;
+            android:textSize=&quot;@dimen/size&quot; /&gt;
+&lt;!--此处的SeekBar用于显示歌曲播放进度--&gt;
+        &lt;SeekBar
+            android:id=&quot;@+id/seekBar1&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot; /&gt;
+        &lt;LinearLayout
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot; &gt;
+&lt;!--此处的TextView用于歌曲当前播放时刻--&gt;
+        &lt;TextView
+            android:id=&quot;@+id/textView2&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_marginLeft=&quot;@dimen/left&quot;
+            android:layout_weight=&quot;1&quot;
+            android:text=&quot;@string/time1&quot; /&gt;
+&lt;!--此处的TextView用于显示歌曲总时长--&gt;
+        &lt;TextView
+            android:id=&quot;@+id/textView3&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_gravity=&quot;right&quot;
+            android:layout_marginRight=&quot;@dimen/left&quot;
+            android:layout_weight=&quot;1&quot;
+            android:gravity=&quot;right&quot;
+            android:text=&quot;@string/time2&quot; /&gt;
+        &lt;/LinearLayout&gt;
+&lt;!--此处的ListView作为歌曲列表--&gt;
+        &lt;ListView
+            android:id=&quot;@+id/listView1&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;wrap_content&quot; &gt;
+        &lt;/ListView&gt;
+&lt;/LinearLayout&gt;
+</code></pre>
+
+<h2 id="4-2音频数据库">4.2音频数据库</h2>
+
+<p><em>Android系统自带的本地音频数据库表格如下：</em></p>
+
+<table>
+<thead>
+<tr>
+<th align="center"><em>字段</em></th>
+<th align="center"><em>解析</em></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="center"><em>_id</em></td>
+<td align="center"><em>歌曲id</em></td>
+</tr>
+
+<tr>
+<td align="center"><em>_data</em></td>
+<td align="center"><em>文件的绝对路径</em></td>
+</tr>
+
+<tr>
+<td align="center"><em>_size</em></td>
+<td align="center"><em>文件大小</em></td>
+</tr>
+
+<tr>
+<td align="center"><em>_display_name</em></td>
+<td align="center"><em>文件名</em></td>
+</tr>
+
+<tr>
+<td align="center"><em>album</em></td>
+<td align="center"><em>专辑名</em></td>
+</tr>
+
+<tr>
+<td align="center"><em>artist</em></td>
+<td align="center"><em>作曲家</em></td>
+</tr>
+
+<tr>
+<td align="center"><em>title</em></td>
+<td align="center"><em>歌曲标题</em></td>
+</tr>
+
+<tr>
+<td align="center"><em>duration</em></td>
+<td align="center"><em>播放时长</em></td>
+</tr>
+</tbody>
+</table>
+
+<p>​                                                                             <em>表4.1 音频数据表</em></p>
+
+<p><em>借助上表的字段名和Android提供的ContentProvider可以针对性的获取音频数据，是本地音乐的扫描得到实现的可能。</em></p>
+
+<h2 id="4-3本地音乐的搜索扫描">4.3本地音乐的搜索扫描</h2>
+
+<h3 id="4-3-1连接音频数据库">4.3.1连接音频数据库</h3>
+
+<pre><code class="language-java">cursor=resolver.query(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,null,null,null,MediaStore.Audio.Media._ID);
+</code></pre>
+
+<p><em>利用ContentProvider（内容提供者）调用Android系统自带的音频数据库，这个路径地址为MediaStore.Audio.Media.EXTERNAL_CONTENT_URI，返回结果为一个Cursor数据集对象。</em></p>
+
+<h3 id="4-3-2音乐数据存储">4.3.2音乐数据存储</h3>
+
+<pre><code class="language-java">MediaResource[] mediares = new MediaResource[cursor.getCount()];
+		if(cursor.moveToFirst()){
+			for(int i = 0;i &lt; cursor.getCount();i++){
 _id =cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media._ID));
 _title=cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.TITLE));
 _musician = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST));
 _article = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM));
-    _datapath = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
+	_datapath = cursor.getString(cursor.getColumnIndex(MediaStore.Audio.Media.DATA));
 _size = cursor.getLong(cursor.getColumnIndex(MediaStore.Audio.Media.SIZE));
-    _duration = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
+	_duration = cursor.getInt(cursor.getColumnIndex(MediaStore.Audio.Media.DURATION));
 list[i] = _title;
 mediares[i] = new MediaResource( _id, _title, _musician, _article, _datapath, _size ,_duration);
 cursor.moveToNext();
 }
 }
-根据数据类型分别得到音乐的id、标题、艺术家、专辑、文件路径、文件大小、时长等属性，然后利用for循环和cursor.moveToNext()遍历所有cursor结果集。将音乐对象的属性存到MediaResource自定义类型对象的成员变量里，并将各个MediaResource对象存储到mediares数组中，方便之后读取音乐信息。
-#4.3.3音乐信息显示
-ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
-listView.setAdapter(adapter);<br />
-实现ArrayAdapter，使用ListView显示歌曲列表。
-#4.4音乐播放
-#4.4.1音乐点击实现
-//设置ListView监听
+</code></pre>
+
+<p>​       <em>根据数据类型分别得到音乐的id、标题、艺术家、专辑、文件路径、文件大小、时长等属性，然后利用for循环和cursor.moveToNext()遍历所有cursor结果集。将音乐对象的属性存到MediaResource自定义类型对象的成员变量里，并将各个MediaResource对象存储到mediares数组中，方便之后读取音乐信息。</em></p>
+
+<h3 id="4-3-3音乐信息显示">4.3.3音乐信息显示</h3>
+
+<pre><code class="language-java">ArrayAdapter&lt;String&gt; adapter = new ArrayAdapter&lt;String&gt;(this,android.R.layout.simple_list_item_1,list);
+listView.setAdapter(adapter);	
+</code></pre>
+
+<p>​      <em>实现ArrayAdapter，使用ListView显示歌曲列表。</em></p>
+
+<h2 id="4-4音乐播放">4.4音乐播放</h2>
+
+<h3 id="4-4-1音乐点击实现">4.4.1音乐点击实现</h3>
+
+<pre><code class="language-java">//设置ListView监听
 listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-    @Override
-    public void onItemClick(AdapterView&lt;?&gt; parent, View view,int position, long id)
+	@Override
+	public void onItemClick(AdapterView&lt;?&gt; parent, View view,int position, long id) 
 {
 // TODO Auto-generated method stub
-            play(mediares[position].getDatapath(),position);
+			play(mediares[position].getDatapath(),position);
 //根据position播放相应歌曲
-                play.setText(&ldquo;暂停&rdquo;);
-                positions = position;
-        }
+				play.setText(&quot;暂停&quot;);
+				positions = position;
+		}
 });
-创建一个匿名内部类实现OnItemClickListenter接口，并重写onItemClick方法。
-#4.4.2播放暂停实现
-play.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                if(mService.getData()==&ldquo;&rdquo;){
-                    play.setText(&ldquo;暂停&rdquo;);
-                    play(mediares[positions].getDatapath(),positions);
-                }else{
-                    if(!isPlay){
-                        mService.play();
-                        time = mService.getCurrenPosition();
-                        play.setText(&ldquo;播放&rdquo;);
-                        isPlay = true;
-                    }else{
-                        mService.play();
-                        mService.seekTo(time);
-                        play.setText(&ldquo;暂停&rdquo;);
-                        isPlay = false;
-                    }
-                }
-            }
-        });
-定义一个isPlay布尔变量，当isPlay为false时，调用自定义类MusicService中play()方法，暂停播放；反之，调用play()方法继续播放。
-#4.4.3音乐的切换
-public void next(int mode){//播放下一曲的方法
-    switch(mode){//根据当前的播放模式切换下一首
-case ORDER:if(positions==mediares.length-1)positions=0;else
-positions++;play(mediares[positions].getDatapath(),positions);break;
-case RANDOM:int random = new Random().nextInt(mediares.length);
-positions=positions==random ? ++positions : random;
-                    play(mediares[positions].getDatapath(),positions);break;
-        case SINGLE:play(mediares[positions].getDatapath(),positions);
-        }
+</code></pre>
+
+<p>​       <em>创建一个匿名内部类实现OnItemClickListenter接口，并重写onItemClick方法。</em></p>
+
+<h3 id="4-4-2播放暂停实现">4.4.2播放暂停实现</h3>
+
+<pre><code class="language-java">play.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				if(mService.getData()==&quot;&quot;){
+					play.setText(&quot;暂停&quot;);
+					play(mediares[positions].getDatapath(),positions);
+				}else{
+					if(!isPlay){
+						mService.play();
+						time = mService.getCurrenPosition();
+						play.setText(&quot;播放&quot;);
+						isPlay = true;
+					}else{
+						mService.play();
+						mService.seekTo(time);
+						play.setText(&quot;暂停&quot;);
+						isPlay = false;
+					}
+				}
+			}
+		});
+</code></pre>
+
+<p>​        <em>定义一个isPlay布尔变量，当isPlay为false时，调用自定义类MusicService中play()方法，暂停播放；反之，调用play()方法继续播放。</em></p>
+
+<h3 id="4-4-3音乐的切换">4.4.3音乐的切换</h3>
+
+<pre><code class="language-java">public void next(int mode){//播放下一曲的方法
+	switch(mode){//根据当前的播放模式切换下一首
+		case ORDER:if(positions==mediares.length-1)positions=0;else
+			positions++;play(mediares[positions].getDatapath(),positions);break;
+		case RANDOM:int random = new Random().nextInt(mediares.length);
+			positions=positions==random ? ++positions : random;
+		            play(mediares[positions].getDatapath(),positions);break;
+		case SINGLE:play(mediares[positions].getDatapath(),positions);
+    }
 }
 public void previous(int mode){//播放上一首歌的方法
-    switch(mode){//同上
-        case ORDER:if(positions==0)positions=mediares.length-1;else positions&ndash;;play(mediares[positions].getDatapath(),positions);break;
-        case RANDOM:int random = new Random().nextInt(mediares.length);
-positions=positions==random ? ++positions : random;
-                    play(mediares[positions].getDatapath(),positions);break;
-        case SINGLE:play(mediares[positions].getDatapath(),positions);
-        }
-}
-#4.4.4音乐启动服务实现
-//获取Service对象
-mConnection = new ServiceConnection(){
-    @Override
-    public void onServiceConnected(ComponentName name, IBinder service) {
-        // TODO Auto-generated method stub
-        mService = ((MusicService.MyBinder)service).getService();
-    }</p>
-
-<pre><code>@Override
-public void onServiceDisconnected(ComponentName name) {
-    // TODO Auto-generated method stub
-    mService = null;
+	switch(mode){//同上
+		case ORDER:if(positions==0)positions=mediares.length-1;else positions-		-;play(mediares[positions].getDatapath(),positions);break;
+		case RANDOM:int random = new Random().nextInt(mediares.length);
+			positions=positions==random ? ++positions : random;
+		    play(mediares[positions].getDatapath(),positions);break;
+		case SINGLE:play(mediares[positions].getDatapath(),positions);
+    }
 }
 </code></pre>
 
-<p>};
+<h3 id="4-4-4音乐启动服务实现">4.4.4音乐启动服务实现</h3>
+
+<pre><code class="language-java">//获取Service对象
+mConnection = new ServiceConnection(){
+	@Override
+	public void onServiceConnected(ComponentName name, IBinder service) {
+		// TODO Auto-generated method stub
+		mService = ((MusicService.MyBinder)service).getService();
+	}
+
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+        // TODO Auto-generated method stub
+        mService = null;
+    }
+};
 intent = new Intent(this,MusicService.class);
 bindService(intent,mConnection,Context.BIND_AUTO_CREATE);//以绑定方式启动Service，并获取Service对象
-#4.4.5自定义音乐服务
-public class MusicService extends Service {
-    private IBinder mbinder;
-    private MediaPlayer mediaPlayer;
-    private Thread seekBarThread;//进度条线程
-    private String musicData;//歌曲路径
-    private Thread playerThread;//播放歌曲线程
-    @Override
-    public void onCreate() {//初始化
-        // TODO Auto-generated method stub
-        super.onCreate();
-        musicData=&ldquo;&rdquo;;
-        mbinder = new MyBinder();
-        mediaPlayer = new MediaPlayer();
-    }</p>
-
-<pre><code>public void setData(String musicData){//设置歌曲路径
-    this.musicData = musicData;
-}
-
-public String getData(){//获取歌曲路径
-    return musicData;
-}
-
-public void prepare(){//播放前的准备
-    try { 
-        mediaPlayer.reset();//重置mediaPlayer对象
-        mediaPlayer.setDataSource(musicData);//设置播放歌曲的路径
-        seekBarThread = new Thread(backgroudSeek);//实例化进度条线程
-        playerThread = new Thread(player);//实例化播放线程
 </code></pre>
 
-<p>mediaPlayer.prepareAsync(); //使用异步准备模式，准备好媒体资源后将调用onPrepared(MediaPlayer mp)方法
-        } catch (IllegalArgumentException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (SecurityException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IllegalStateException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        //设置媒体资源准备完成监听
-        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            @Override
-            //媒体资源准备完成调用，启动进度条线程，和播放线程
-            public void onPrepared(MediaPlayer mp) {
-                // TODO Auto-generated method stub
-                if(!seekBarThread.isAlive()&amp;&amp;!playerThread.isAlive()){
-                    seekBarThread.start();
-                    playerThread.start();<br />
-                }<br />
-            }
-        });
-        //设置歌曲播放完成监听
-        mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener()
-{
-            @Override
-            //播放完成调用，发送广播通知Activity，切换下一首歌
-            public void onCompletion(MediaPlayer mp) {
-                // TODO Auto-generated method stub
-                Intent intent = new Intent(&ldquo;com.example.textmedia2.MUSICAUTO_ACTION&rdquo;);
-                sendBroadcast(intent);
-            }
-        });
-        //设置播放错误监听
-        mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {</p>
+<h3 id="4-4-5自定义音乐服务">4.4.5自定义音乐服务</h3>
 
-<pre><code>        @Override
-        public boolean onError(MediaPlayer mp, int what, int extra) {
-            // TODO Auto-generated method stub
-            return true;
-        }
-    });
-</code></pre>
+<pre><code class="language-java">public class MusicService extends Service {
+	private IBinder mbinder;
+	private MediaPlayer mediaPlayer;
+	private Thread seekBarThread;//进度条线程
+	private String musicData;//歌曲路径
+	private Thread playerThread;//播放歌曲线程
+	@Override
+	public void onCreate() {//初始化
+		// TODO Auto-generated method stub
+		super.onCreate();
+		musicData=&quot;&quot;;
+		mbinder = new MyBinder();
+		mediaPlayer = new MediaPlayer();
+	}
+	
 
-<p>}</p>
-
-<pre><code>//实现播放/暂停
-</code></pre>
-
-<p>public void play(){
-        if(mediaPlayer.isPlaying()){
-            mediaPlayer.pause();
-        }else{
-            mediaPlayer.start();
-        }
+    public void setData(String musicData){//设置歌曲路径
+        this.musicData = musicData;
     }
-   //停止播放
-    public void stop(){
-        seekBarThread.interrupt();
-        playerThread.interrupt();
-        mediaPlayer.stop();
-    }
-    //判断歌曲是否在播放
-    public boolean isPlaying(){
-        return mediaPlayer.isPlaying();
-    }
-    //获取当前播放时刻
-    public int getCurrenPosition(){
-        return mediaPlayer.getCurrentPosition();
-    }
-    //将歌曲跳转到指定时刻播放
-    public void seekTo(int time){
-        mediaPlayer.seekTo(time);
-    }</p>
 
-<pre><code>private Runnable backgroudSeek = new Runnable(){//实现Runnable接口,并重写run()方法
-    @Override
-    public void run() {
-        // TODO Auto-generated method stub
-            try {
-                while(!Thread.interrupted()){
-                    //调用Activity中的UpdataGUI方法刷新屏幕
-                    MainActivity.UpdateGUI(mediaPlayer.getCurrentPosition());
-                    Thread.sleep(1000);
-                }
-            } catch (InterruptedException e) {
+    public String getData(){//获取歌曲路径
+        return musicData;
+    }
+
+    public void prepare(){//播放前的准备
+        try { 
+            mediaPlayer.reset();//重置mediaPlayer对象
+            mediaPlayer.setDataSource(musicData);//设置播放歌曲的路径
+            seekBarThread = new Thread(backgroudSeek);//实例化进度条线程
+            playerThread = new Thread(player);//实例化播放线程
+            mediaPlayer.prepareAsync();	//使用异步准备模式，准备好媒体资源后将调用 		        onPrepared(MediaPlayer mp)方法
+            } catch (IllegalArgumentException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (SecurityException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IllegalStateException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-        }   
-};
+            //设置媒体资源准备完成监听
+            mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                @Override
+                //媒体资源准备完成调用，启动进度条线程，和播放线程
+                public void onPrepared(MediaPlayer mp) {
+                    // TODO Auto-generated method stub
+                    if(!seekBarThread.isAlive()&amp;&amp;!playerThread.isAlive()){
+                        seekBarThread.start();
+                        playerThread.start();		
+                    }	
+                }
+            });
+            //设置歌曲播放完成监听
+            mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener(){
+                @Override
+                //播放完成调用，发送广播通知Activity，切换下一首歌
+                public void onCompletion(MediaPlayer mp) {
+                    // TODO Auto-generated method stub
+                    Intent intent = new                    		Intent(&quot;com.example.textmedia2.MUSICAUTO_ACTION&quot;);
+                    sendBroadcast(intent);
+                }
+            });
+            //设置播放错误监听
+            mediaPlayer.setOnErrorListener(new MediaPlayer.OnErrorListener() {
 
-private Runnable player = new Runnable(){
+
+            @Override
+            public boolean onError(MediaPlayer mp, int what, int extra) {
+                // TODO Auto-generated method stub
+                return true;
+            }
+        });
+
+    }
+
+//实现播放/暂停
+
+   public void play(){
+		if(mediaPlayer.isPlaying()){
+			mediaPlayer.pause();
+		}else{
+			mediaPlayer.start();
+		}
+	}
+   //停止播放
+	public void stop(){
+		seekBarThread.interrupt();
+		playerThread.interrupt();
+		mediaPlayer.stop();
+	}
+	//判断歌曲是否在播放
+	public boolean isPlaying(){
+		return mediaPlayer.isPlaying();
+	}
+	//获取当前播放时刻
+	public int getCurrenPosition(){
+		return mediaPlayer.getCurrentPosition();
+	}
+	//将歌曲跳转到指定时刻播放
+	public void seekTo(int time){
+		mediaPlayer.seekTo(time);
+	}
+	
+    private Runnable backgroudSeek = new Runnable(){//实现Runnable接口,并重写run()方法
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
+                try {
+                    while(!Thread.interrupted()){
+                        //调用Activity中的UpdataGUI方法刷新屏幕
+                        MainActivity.UpdateGUI(mediaPlayer.getCurrentPosition());
+                        Thread.sleep(1000);
+                    }
+                } catch (InterruptedException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }	
+    };
+
+    private Runnable player = new Runnable(){
+        @Override
+        public void run() {
+            // TODO Auto-generated method stub
+            mediaPlayer.start();//播放音乐
+        }
+    };
+    //Activity销毁时调用，停止播放，释放资源，停止两个子线程
+
+       @Override
+        public boolean onUnbind(Intent intent) {
+            // TODO Auto-generated method stub
+            mediaPlayer.stop();
+            mediaPlayer.release();
+            playerThread.interrupt();
+            seekBarThread.interrupt();
+            return super.onUnbind(intent);	
+        }
+
     @Override
-    public void run() {
+    public void onRebind(Intent intent) {
         // TODO Auto-generated method stub
-        mediaPlayer.start();//播放音乐
+        super.onRebind(intent);
     }
-};
-//Activity销毁时调用，停止播放，释放资源，停止两个子线程
-</code></pre>
 
-<p>@Override
-    public boolean onUnbind(Intent intent) {
+    @Override
+    public IBinder onBind(Intent intent) {
         // TODO Auto-generated method stub
-        mediaPlayer.stop();
-        mediaPlayer.release();
-        playerThread.interrupt();
-        seekBarThread.interrupt();
-        return super.onUnbind(intent);<br />
-    }</p>
-
-<pre><code>@Override
-public void onRebind(Intent intent) {
-    // TODO Auto-generated method stub
-    super.onRebind(intent);
-}
-
-@Override
-public IBinder onBind(Intent intent) {
-    // TODO Auto-generated method stub
-    return mbinder;
-}
-//自定义一个MyBinder类继承Binder，定义一个getService()方法返回MusicService对象的引用
-public class MyBinder extends Binder{
-    public MusicService getService(){
-        return MusicService.this;
+        return mbinder;
     }
-}
-@Override
-public void onDestroy() {
-    // TODO Auto-generated method stub
-    super.onDestroy();
+    //自定义一个MyBinder类继承Binder，定义一个getService()方法返回MusicService对象的引用
+    public class MyBinder extends Binder{
+        public MusicService getService(){
+            return MusicService.this;
+        }
+    }
+    @Override
+    public void onDestroy() {
+        // TODO Auto-generated method stub
+        super.onDestroy();
+    }
 }
 </code></pre>
 
-<p>}
-媒体资源采用异步准备方式，当资源准备完成后，调用onPrepared(MediaPlayer mp)方法，启动播放线程开始播放。
-#总结
-经过两个星期的开发，我们组的课程设计终于实现了，这是对这一学期Android课程的阶段性总结，也是给大家的一个汇报。
-我们的课题是Android手机APP开发—一音乐播放器。音乐播放器的形成需要各方面的技术配合；本app使用JDK 1.7并在Eclipse上开发，利用谷歌提供API17及以上的应用程序编程接口实现Android平台的音乐播放器开发,利用ContentResolve包提供的方法，在Android系统里搜寻媒体音频库,实现本地音乐的扫描,利用Java的监听事件实现按钮的点击监听，借助Android的四大组件中的Service，并开辟子线程实现音乐的后台播放,避免主线程任务繁多而导致的卡死，提高用户体验。利用BroadCast Receiver,实现播放完成切歌的通知。在代码编写中尽量使用单例模式，节省不必要的内存开销,屏蔽对象创建的复杂性。
-在这次课程设计里,我们逐渐了解到了在开发一个简易音乐播放器的过程里所要涉及到的各式工具与方法，Android媒体数据库等这些都是我在学校课堂里没有接触过的，让我学习了更多的东西，接触面也广了，提高了开发者的设计能力和思考能力。也让我了解了应该如何书写论文的文档才能够实现规范合理要求。</p>
+<p>​        <em>媒体资源采用异步准备方式，当资源准 备完成后，调用onPrepared(MediaPlayer mp)方法，启动播放线程开始播放。</em></p>
+
+<h1 id="总结">总结</h1>
+
+<p>​       <em>经过两个星期的开发，我们组的课程设计终于实现了，这是对这一学期Android课程的阶段性总结，也是给大家的一个汇报。</em>
+​       <em>我们的课题是Android手机APP开发—一音乐播放器。音乐播放器的形成需要各方面的技术配合；本app使用JDK 1.7并在Eclipse上开发，利用谷歌提供API17及以上的应用程序编程接口实现Android平台的音乐播放器开发,利用ContentResolve包提供的方法，在Android系统里搜寻媒体音频库,实现本地音乐的扫描,利用Java的监听事件实现按钮的点击监听，借助Android的四大组件中的Service，并开辟子线程实现音乐的后台播放,避免主线程任务繁多而导致的卡死，提高用户体验。利用BroadCast Receiver,实现播放完成切歌的通知。在代码编写中尽量使用单例模式，节省不必要的内存开销,屏蔽对象创建的复杂性。</em>
+​       *在这次课程设计里,我们逐渐了解到了在开发一个简易音乐播放器的过程里所要涉及到的各式工具与方法，Android媒体数据库等这些都是我在学校课堂里没有接触过的，让我学习了更多的东西，接触面也广了，提高了开发者的设计能力和思考能力。也让我了解了应该如何书写论文的文档才能够实现规范合理要求*。</p>
 
     </div>
     <div class="post-footer">
