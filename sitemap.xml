@@ -20,6 +20,11 @@
   </url>
   
   <url>
+    <loc>https://zjys.github.io/post/scala_day01/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://zjys.github.io/categories/</loc>
     <priority>0</priority>
   </url>
