@@ -6,10 +6,30 @@
     <description>Recent content in Posts on My New Hugo Site</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jul 2019 15:08:32 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 15 Jul 2019 21:04:15 +0800</lastBuildDate>
     
 	<atom:link href="https://zjys.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Scala学习笔记第一天</title>
+      <link>https://zjys.github.io/post/scala_day01/</link>
+      <pubDate>Mon, 15 Jul 2019 21:04:15 +0800</pubDate>
+      
+      <guid>https://zjys.github.io/post/scala_day01/</guid>
+      <description>1、Scala概述 1.1、什么是Scala Scala 官网：https://www.scala-lang.org/
+Scala 是一种多范式的编程语言，其设计的初衷是要集成面向对象编程和函数式编程的各种特性。Scala 运行于Java 平台（Java 虚拟机），并兼容现有的 Java 程序。
+Scala(Scalable Language 的简称)语言是一种能够运行于 JVM和.Net 平台之上的通用编程语言，既可用于大规模应用程序开发，也可用于脚本编程，它由由 Martin Odersky 于 2001 开发，2004 年开始程序运行在 JVM 与.Net 平台之上，由于其简洁、优雅、类型安全的编程模式而受到关注。
+1.2、3种编程思想 （1）面向过程编程（C语言）：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用 的时候一个一个依次调用就可以了。
+（2）面向对象编程（C++、Java、Scala）:是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个 步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。
+（3）函数式编程（Scala）：函数式编程是种编程方式，它将电脑运算视为函数的计算。函数编程语言最重要的基 础是λ演算（lambda calculus），而且λ演算的函数可以接受函数当作输入（参数）和输出（返回值）。
+1.3、语言的类型 动态语言：动态语言，是指程序在运行时可以改变其结构：新的函数可以被引进，已有的函数可以被删除等在结构上的变化，类型的检查是在运行时做的，优点为方便阅读，清晰明了，缺点为不方便调试。
+静态语言：静态语言的类型检查是在编译期确定，在定义变量时就要声明其类型。
+强类型语言：强制数据类型定义的语言。也就是说，一旦一个变量被指定了某个数据类型，如果不经过强制转换，那么它就永远是这个数据类型了。举个例子：如果你定义了一个整型变量 a，那么程序根本不可能将 a 当作字符串类型处理。强类型定义语言是类型安全的语言。
+弱类型语言：数据类型可以被忽略的语言。它与强类型定义语言相反, 一个变量可以赋不同数据类型的值。
+Python 是动态类型语言，是强类型语言。 JavaScript 是动态类型语言，是弱类型语言。 Java 、scala是静态类型语言，是强类型语言
+2、scala基本语法 2.1、第一个程序HelloWorld package demo object HelloWorld { def main(args: Array[String]): Unit = { println(&amp;quot;Hello World&amp;quot;) } }  2.2、变量的声明 object VariableDemo { def main(args: Array[String]) { // 使用 val 定义的变量值是不可变的，相当于 java 里用 final 修饰的变量 val i = 1 // 使用 var 定义的变量是可变得，在 Scala 中鼓励使用 val var s = &amp;quot;hello&amp;quot; //Scala 编译器会自动推断变量的类型，必要的时候可以指定类型 // 变量名在前，类型在后 val str: String = &amp;quot;spark&amp;quot; } }  总结： 1）数据类型可以指定，也可以不指定，如果不指定，那么就会进行数据类型的 自动 推断。 2）如果指定数据类型，数据类型的执行方式是在变量名后面写一个 冒号，然后写上数据类型。 3）我们的 scala 里面变量的修饰符一共有两个，一个是 var，一个是 val;如果是 var 修饰的变量，那么这个变量的值是可以修改的，虽然可以修改，但是不能改成其他类型的值如果是 val 修饰的变量，那么这个变量的值是不可以修改的。</description>
+    </item>
     
     <item>
       <title>Android课设</title>
@@ -27,26 +47,6 @@
 3.2音乐播放器的时序图 从时序图中可以看出播放器的调用过程：
 4.详细设计 4.1播放器的主界面的设计与说明 ​ Android的每一个Activity，都有其唯一的布局配置文件，该文件里有各种布局方式，各种资源文件如图像，文字，颜色的引用，程序在运行时，可以通过代码对配置文件进行读取。这样就可以形成不同的可视化界面和绚丽效果。
 &amp;lt;!--主界面布局文件内容如下：--&amp;gt;* &amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot;?&amp;gt; &amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot; android:layout_width=&amp;quot;match_parent&amp;quot; android:layout_height=&amp;quot;match_parent&amp;quot; android:orientation=&amp;quot;vertical&amp;quot; &amp;gt; &amp;lt;LinearLayout android:layout_width=&amp;quot;match_parent&amp;quot; android:layout_height=&amp;quot;wrap_content&amp;quot; &amp;gt; &amp;lt;!--此处的Button用于上一曲--&amp;gt; &amp;lt;Button android:id=&amp;quot;@+id/button1&amp;quot; android:layout_width=&amp;quot;wrap_content&amp;quot; android:layout_height=&amp;quot;wrap_content&amp;quot; android:layout_margin=&amp;quot;@dimen/activity_horizontal_margin&amp;quot; android:layout_weight=&amp;quot;1&amp;quot; android:text=&amp;quot;@string/button1&amp;quot; /&amp;gt; &amp;lt;!--此处的Button用于播放与暂停--&amp;gt; &amp;lt;Button android:id=&amp;quot;@+id/button2&amp;quot; android:layout_width=&amp;quot;wrap_content&amp;quot; android:layout_height=&amp;quot;wrap_content&amp;quot; android:layout_margin=&amp;quot;@dimen/activity_horizontal_margin&amp;quot; android:layout_weight=&amp;quot;1&amp;quot; android:text=&amp;quot;@string/button2&amp;quot; /&amp;gt; &amp;lt;!</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://zjys.github.io/post/scala_day01/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://zjys.github.io/post/scala_day01/</guid>
-      <description>1、Scala概述 1.1、什么是Scala Scala 官网：https://www.scala-lang.org/
-Scala 是一种多范式的编程语言，其设计的初衷是要集成面向对象编程和函数式编程的各种特性。Scala 运行于Java 平台（Java 虚拟机），并兼容现有的 Java 程序。
-Scala(Scalable Language 的简称)语言是一种能够运行于 JVM和.Net 平台之上的通用编程语言，既可用于大规模应用程序开发，也可用于脚本编程，它由由 Martin Odersky 于 2001 开发，2004 年开始程序运行在 JVM 与.Net 平台之上，由于其简洁、优雅、类型安全的编程模式而受到关注。
-1.2、3种编程思想 （1）面向过程编程（C语言）：就是分析出解决问题所需要的步骤，然后用函数把这些步骤一步一步实现，使用 的时候一个一个依次调用就可以了。
-（2）面向对象编程（C++、Java、Scala）:是把构成问题事务分解成各个对象，建立对象的目的不是为了完成一个 步骤，而是为了描叙某个事物在整个解决问题的步骤中的行为。
-（3）函数式编程（Scala）：函数式编程是种编程方式，它将电脑运算视为函数的计算。函数编程语言最重要的基 础是λ演算（lambda calculus），而且λ演算的函数可以接受函数当作输入（参数）和输出（返回值）。
-1.3、语言的类型 动态语言：动态语言，是指程序在运行时可以改变其结构：新的函数可以被引进，已有的函数可以被删除等在结构上的变化，类型的检查是在运行时做的，优点为方便阅读，清晰明了，缺点为不方便调试。
-静态语言：静态语言的类型检查是在编译期确定，在定义变量时就要声明其类型。
-强类型语言：强制数据类型定义的语言。也就是说，一旦一个变量被指定了某个数据类型，如果不经过强制转换，那么它就永远是这个数据类型了。举个例子：如果你定义了一个整型变量 a，那么程序根本不可能将 a 当作字符串类型处理。强类型定义语言是类型安全的语言。
-弱类型语言：数据类型可以被忽略的语言。它与强类型定义语言相反, 一个变量可以赋不同数据类型的值。
-Python 是动态类型语言，是强类型语言。 JavaScript 是动态类型语言，是弱类型语言。 Java 、scala是静态类型语言，是强类型语言
-2、scala基本语法 2.1、第一个程序HelloWorld package demo object HelloWorld { def main(args: Array[String]): Unit = { println(&amp;quot;Hello World&amp;quot;) } }  2.2、变量的声明 object VariableDemo { def main(args: Array[String]) { // 使用 val 定义的变量值是不可变的，相当于 java 里用 final 修饰的变量 val i = 1 // 使用 var 定义的变量是可变得，在 Scala 中鼓励使用 val var s = &amp;quot;hello&amp;quot; //Scala 编译器会自动推断变量的类型，必要的时候可以指定类型 // 变量名在前，类型在后 val str: String = &amp;quot;spark&amp;quot; } }  总结： 1）数据类型可以指定，也可以不指定，如果不指定，那么就会进行数据类型的 自动 推断。 2）如果指定数据类型，数据类型的执行方式是在变量名后面写一个 冒号，然后写上数据类型。 3）我们的 scala 里面变量的修饰符一共有两个，一个是 var，一个是 val;如果是 var 修饰的变量，那么这个变量的值是可以修改的，虽然可以修改，但是不能改成其他类型的值如果是 val 修饰的变量，那么这个变量的值是不可以修改的。</description>
     </item>
     
   </channel>
